@@ -6,6 +6,14 @@ $destinationTime = new DateTime('2015-10-21 16:06:00');
 
 $intervalTime = $destinationTime->diff($presentTime);
 
+$years = $intervalTime->format('%y');
+$months = $intervalTime->format('%m');
+$days = $intervalTime->format('%d');
+$hours = $intervalTime->format('%h');
+$minutes = $intervalTime->format('%i');
+
+$litres = round(($years*365*24*60 + $months*30*24*60 + $days*24*60 + $hours*60 + $minutes)/10000);
+
 ?>
 
 <!DOCTYPE html>
@@ -72,8 +80,8 @@ $intervalTime = $destinationTime->diff($presentTime);
             <td colspan='6'>PRESENT TIME</td>
         </tr>
     </table>
-    <p>Time interval : <?= $intervalTime->format('%y years %m months %d days %h hours and %i minutes') ?></p>
-    
+    <p>Time interval : <?= $intervalTime->format('%y years %m months %d days %h hours and %i minutes') ?>.</p>
+    <p>Nomber of liters : <?= $litres ?>.</p>
 </body>
 
 </html>
